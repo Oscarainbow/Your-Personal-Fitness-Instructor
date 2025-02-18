@@ -27,6 +27,17 @@ def get_calories(food_name, weight_in_grams, food_dict):
     
     return None
 
+#Function to calculate calorie intake on average someone should take
+def calculate_bmr(gender, weight, height, age):
+    if gender.lower() == 'female':
+        bmr = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age)
+    elif gender.lower() == 'male':
+        bmr = 66 + (13.7 * weight) + (5 * height) - (6.8 * age)
+    else:
+        raise ValueError("Gender must be 'male' or 'female'")
+    
+    return bmr
+
 # Main function for testing
 def main():
     food_data = load_food_data()
@@ -43,6 +54,14 @@ def main():
     
     except ValueError:
         print("Invalid input! Please enter a number for weight.")
+
+    gender = "female"
+    weight = 70  # kg
+    height = 170  # cm
+    age = 30  # years
+
+    bmr_value = calculate_bmr(gender, weight, height, age)
+    print(f"Basal Metabolic Rate (BMR): {bmr_value:.2f} kcal")
 
 # Run the main function if script is executed directly
 if __name__ == "__main__":
