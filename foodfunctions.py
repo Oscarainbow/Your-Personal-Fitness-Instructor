@@ -16,6 +16,21 @@ def load_food_data():
     # Create a dictionary {food_name (lowercase): calories per 100g}
     return dict(zip(df['Description'].str.lower(), df['Calories_per_100g']))
 
+# Function to load exercise data from CSV
+def load_exercise_data():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_file = os.path.join(script_dir, "data", "exerciseData", "exercise_dataset.csv")
+
+    df = pd.read_csv(csv_file)
+
+    # Clean column names
+    df.columns = ['Activity', '130_lb', '155_lb', '180_lb', '205_lb', 'Calories_per_kg']
+
+    # Convert activity names to lowercase for better matching
+    df['Activity'] = df['Activity'].str.lower().str.strip()
+
+    return df
+
 # Function to calculate calories based on food name and weight in grams
 def get_calories(food_name, weight_in_grams, food_dict):
     food_name = food_name.lower().strip()
@@ -27,7 +42,7 @@ def get_calories(food_name, weight_in_grams, food_dict):
     
     return None
 
-#Function to calculate calorie intake on average someone should take in kg and cm
+#Function to calculate calorie intake on average someone should take
 def calculate_bmr(gender, weight, height, age):
     if gender.lower() == 'female':
         bmr = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age)
@@ -37,10 +52,10 @@ def calculate_bmr(gender, weight, height, age):
         raise ValueError("Gender must be 'male' or 'female'")
     
     return bmr
-#Function to calculate if you are likely gaining or losing weight
+#Function to calculate if you are gaining or losing weight
 def assess_weight_change(gender, weight, height, age, daily_food_intake):
     food_dict = load_food_data()
-    print("Available foods:", list(food_dict.keys())[:10])
+    
     total_calories_consumed = 0
     for food, weight in daily_food_intake.items():
         calories = get_calories(food, weight, food_dict)
@@ -48,7 +63,7 @@ def assess_weight_change(gender, weight, height, age, daily_food_intake):
             print(f"{food}: {calories} kcal")  # Debugging statement
             total_calories_consumed += calories
         else:
-            print(f"Warning: {food} not found in food data.")  # Debugging statement
+            print(f"Warning: {food} not found in food data. Try a more specific name.")  # Debugging statement
     
     print(f"Total calories consumed: {total_calories_consumed}")  # Debugging statement
     
@@ -63,8 +78,8 @@ def assess_weight_change(gender, weight, height, age, daily_food_intake):
         return f"Your calorie intake matches your BMR of {bmr:.2f}, so your weight is likely stable."
 # Main function for testing
 def main():
-    #food_data = load_food_data()
-    '''
+    food_data = load_food_data()
+    
     food_name = input("Enter food name: ")
     try:
         weight = float(input("Enter weight in grams: "))
@@ -84,7 +99,7 @@ def main():
     age = 30  # years
 
     bmr_value = calculate_bmr(gender, weight, height, age)
-    print(f"Basal Metabolic Rate (BMR): {bmr_value:.2f} kcal")'''
+    print(f"Basal Metabolic Rate (BMR): {bmr_value:.2f} kcal")
     gender = "male"
     weight = 70  # kg
     height = 175  # cm
@@ -99,6 +114,32 @@ def main():
     print(result)
     
 
+    sport = input("Enter sport/activity: ")
+    try:
+        duration = float(input("Enter duration in minutes: "))
+        weight_kg = float(input("Enter your weight in kg: "))
+        
+        calories_burned = calculate_calories_burned(sport, duration, weight_kg, exercise_data)
+        
+        if calories_burned is not None:
+            print(f"Calories burned for {duration} minutes of {sport}: {calories_burned} kcal")
+        else:
+            print("Activity not found. Check spelling and try again.")
+    
+    except ValueError:
+        print("Invalid input! Please enter valid numbers.")
+    gender = "male"
+    weight = 70  # kg
+    height = 175  # cm
+    age = 25
+    daily_food_intake = {
+        "raw apple": 200,  # grams
+        "grilled chicken breast": 150,
+        "white rice": 250
+    }
+    
+    result = assess_weight_change(gender, weight, height, age, daily_food_intake)
+    print(result)
 # Run the main function if script is executed directly
 if __name__ == "__main__":
     main()
