@@ -100,20 +100,7 @@ def main():
 
     bmr_value = calculate_bmr(gender, weight, height, age)
     print(f"Basal Metabolic Rate (BMR): {bmr_value:.2f} kcal")
-    gender = "male"
-    weight = 70  # kg
-    height = 175  # cm
-    age = 25
-    daily_food_intake = {
-        "Apple, raw": 200,  # grams
-        "Chicken breast, grilled without sauce, skin eaten": 150,
-        "Rice, white, with lentils, fat added": 250
-    }
     
-    result = assess_weight_change(gender, weight, height, age, daily_food_intake)
-    print(result)
-    
-
     sport = input("Enter sport/activity: ")
     try:
         duration = float(input("Enter duration in minutes: "))
@@ -127,19 +114,21 @@ def main():
             print("Activity not found. Check spelling and try again.")
     
     except ValueError:
-        print("Invalid input! Please enter valid numbers.")
+        print("Invalid input! Please enter a number for duration and weight.")
+
     gender = "male"
     weight = 70  # kg
     height = 175  # cm
     age = 25
     daily_food_intake = {
-        "raw apple": 200,  # grams
-        "grilled chicken breast": 150,
-        "white rice": 250
+        "Apple, raw": 200,  # grams
+        "Chicken breast, grilled without sauce, skin eaten": 150,
+        "Rice, white, with lentils, fat added": 250
     }
     
     result = assess_weight_change(gender, weight, height, age, daily_food_intake)
     print(result)
+   
 # Run the main function if script is executed directly
 if __name__ == "__main__":
     main()
