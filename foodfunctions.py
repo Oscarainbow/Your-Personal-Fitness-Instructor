@@ -1,5 +1,9 @@
+from flask import Flask, request, jsonify
 import pandas as pd
 import os
+import json
+
+app = Flask(__name__)
 
 # Function to load food data from CSV
 def load_food_data():
@@ -15,6 +19,7 @@ def load_food_data():
     df['Calories_per_100g'] = (df['Data.Carbohydrate'] * 4) + (df['Data.Protein'] * 4) + (df['Data.Fat.Total Lipid'] * 9)
     # Create a dictionary {food_name (lowercase): calories per 100g}
     return dict(zip(df['Description'].str.lower(), df['Calories_per_100g']))
+
 
 # Function to load exercise data from CSV
 def load_exercise_data():
@@ -52,6 +57,22 @@ def calculate_bmr(gender, weight, height, age):
         raise ValueError("Gender must be 'male' or 'female'")
     
     return bmr
+
+#Function to run calculate_bmr in Vue
+@app.route('/bmr', methods=['POST'])
+def get_bmr():
+    data = request.json
+    gender = data.get("gender")
+    weight = data.get("weight")
+    height = data.get("height")
+    age = data.get("age")
+
+    if not all([gender, weight, height, age]):
+        return jsonify({"error": "Missing parameters"}), 400
+
+    bmr = calculate_bmr(gender, weight, height, age)
+    return jsonify({"bmr": round(bmr, 2)})
+
 #Function to calculate if you are gaining or losing weight
 def assess_weight_change(gender, weight, height, age, daily_food_intake):
     food_dict = load_food_data()
@@ -76,8 +97,43 @@ def assess_weight_change(gender, weight, height, age, daily_food_intake):
         return f"You are consuming {total_calories_consumed} calories, which is less than your BMR of {bmr:.2f}. You are likely losing weight."
     else:
         return f"Your calorie intake matches your BMR of {bmr:.2f}, so your weight is likely stable."
+    
+#function to calculate weight change in Vue
+@app.route('/weight-change', methods=['POST'])
+def weight_change():
+    data = request.json
+    gender = data.get("gender")
+    weight = data.get("weight")
+    height = data.get("height")
+    age = data.get("age")
+    daily_food_intake = data.get("daily_food_intake", {})  # { "apple": 200, "chicken breast": 300 }
+
+    if not all([gender, weight, height, age, daily_food_intake]):
+        return jsonify({"error": "Missing parameters"}), 400
+
+    # Call the function with the provided data
+    result = assess_weight_change(gender, weight, height, age, daily_food_intake)
+
+    return jsonify({"message": result})
 # Main function for testing
 def main():
+    with app.test_client() as client:
+        # Prepare test data (gender, weight, height, age)
+        data = {
+            "gender": "male",
+            "weight": 75,
+            "height": 175,
+            "age": 30
+        }
+        
+        # Send the POST request to /bmr
+        response = client.post('/bmr', json=data)
+        if response.status_code == 200:
+            print("Test Passed!")
+            print(f"Response: {json.dumps(response.json, indent=2)}")
+        else:
+            print(f"Test Failed with status code: {response.status_code}")
+            print(f"Error: {response.data}")
     food_data = load_food_data()
     
     food_name = input("Enter food name: ")
