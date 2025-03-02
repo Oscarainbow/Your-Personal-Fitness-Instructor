@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import os
 import json
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Function to load food data from CSV
 def load_food_data():
