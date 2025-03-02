@@ -146,7 +146,11 @@ def weight_change():
     return jsonify(result)  # Directly return the structured JSON response
 
 
-# Main method to start the Flask app
+
+
+
+
+# Main function to start the Flask app
 def main():
     print("Starting Flask server...")
     app.run(host="0.0.0.0", port=5000, debug=True)
