@@ -9,8 +9,11 @@ CORS(app)
 
 # Function to load food data from CSV
 def load_food_data():
+
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))  # Get parent directory
     csv_file = os.path.join(BASE_DIR, "data", "foodData", "food.csv")
+
+
 
     
     df = pd.read_csv(csv_file)
@@ -26,8 +29,11 @@ def load_food_data():
 
 # Function to load exercise data from CSV
 def load_exercise_data():
+
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))  # Get parent directory
     csv_file = os.path.join(BASE_DIR, "data", "exerciseData", "exercise_dataset.csv")
+
+
 
 
     df = pd.read_csv(csv_file)
