@@ -1,85 +1,96 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
+import BmrCalculator from './components/BMRCalc.vue';
+import { ref } from 'vue';
+
+const name = ref(''); // Reactive variable for input
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div>
+    <h1>Your Personal Fitness Instructor</h1>
+    <p>Description of the application will go here</p>
+  </div>
+  
+ 
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div> <!-- class="container text-center mt-5" -->
+      
+      <h4>Test textbox</h4>
+      <input type="text" v-model="name" placeholder="Type Name Here" />
+      <p>You entered: {{ name }}</p>
+     
+     
+      <div class="container mt-5 text-center">
+        <h3>Enter Text:</h3>
+        <input type="text" v-model="userInput" class="form-control my-2" placeholder="Type something..." />
+  
+        <button class="btn btn-primary" @click="submitText"> Submit </button>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+        <div v-if="processedText" class="alert alert-success mt-3">
+          <strong>Processed Text:</strong> {{ processedText }}
+        </div>
+
+        <div v-if="error" class="alert alert-danger mt-3">
+          <strong>Error:</strong> {{ error }}
+        </div>
+      </div>
     </div>
-  </header>
 
-  <RouterView />
+<div>
+  <nav>
+    <RouterLink to="/login">Go to Login Page</RouterLink>
+    <RouterView />
+  </nav>
+</div>
+
+
+
+<div id="app">
+  <h1>BMR Calculator</h1>
+  <BmrCalculator />
+</div>
+
+
 </template>
 
+
+<script>
+
+export default {
+  
+  data() {
+    return {
+      userInput: '', //Stores input text
+      processedText: '', //Stores processed text from Python
+      error: '' //Stores error messages
+    };
+  },
+  methods: {
+    async submitText() {
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/submit-text', {
+          text: this.userInput
+        });
+        this.processedText = response.data.processed_text; //Store processed text
+        this.error = ''; //Clear any previous errors
+      } catch (err) {
+        this.error = 'Failed to process input'; //Handle errors
+      }
+    }
+  }
+};
+
+</script>
+
+
+
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+h1 {
+    margin: auto;
+    text-align: center;
 }
 </style>
