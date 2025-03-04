@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
 import BmrCalculator from './components/BMRCalc.vue';
+import WeightChangeCalc from './components/WeightChangeCalc.vue';
 import { ref } from 'vue';
 
 const name = ref(''); // Reactive variable for input
@@ -23,7 +24,7 @@ const name = ref(''); // Reactive variable for input
       <p>You entered: {{ name }}</p>
      
      
-      <div class="container mt-5 text-center">
+      <!--<div class="container mt-5 text-center">
         <h3>Enter Text:</h3>
         <input type="text" v-model="userInput" class="form-control my-2" placeholder="Type something..." />
   
@@ -37,15 +38,19 @@ const name = ref(''); // Reactive variable for input
           <strong>Error:</strong> {{ error }}
         </div>
       </div>
+    -->
     </div>
 
-<div>
-  <nav>
-    <RouterLink to="/login">Go to Login Page</RouterLink>
-    <RouterView />
+  <div>
+    <nav>
+    <span @click="toggleLogin" style="cursor: pointer; color: blue; text-decoration: underline;">
+      Go to Login Page
+    </span>
   </nav>
-</div>
+  </div>
+ 
 
+  <LoginView v-if="showLogin" @closeLogin="toggleLogin" />
 
 
 <div id="app">
@@ -54,13 +59,27 @@ const name = ref(''); // Reactive variable for input
 </div>
 
 
+<div id="app">
+  <h1>Weight Change Calculator</h1>
+  <WeightChangeCalc />
+</div>
+
 </template>
 
 
 <script>
 
+  import { ref } from 'vue';
+  import LoginView from './views/LoginView.vue';
+
+  const showLogin = ref(false);
+
+  const toggleLogin = () => {
+    showLogin.value = !showLogin.value;
+  };
+
+
 export default {
-  
   data() {
     return {
       userInput: '', //Stores input text
