@@ -14,42 +14,14 @@ const name = ref(''); // Reactive variable for input
     <h1>Your Personal Fitness Instructor</h1>
     <p>Description of the application will go here</p>
   </div>
-  
- 
-
-    <div> <!-- class="container text-center mt-5" -->
-      
-      <h4>Test textbox</h4>
-      <input type="text" v-model="name" placeholder="Type Name Here" />
-      <p>You entered: {{ name }}</p>
-     
-     
-      <!--<div class="container mt-5 text-center">
-        <h3>Enter Text:</h3>
-        <input type="text" v-model="userInput" class="form-control my-2" placeholder="Type something..." />
-  
-        <button class="btn btn-primary" @click="submitText"> Submit </button>
-
-        <div v-if="processedText" class="alert alert-success mt-3">
-          <strong>Processed Text:</strong> {{ processedText }}
-        </div>
-
-        <div v-if="error" class="alert alert-danger mt-3">
-          <strong>Error:</strong> {{ error }}
-        </div>
-      </div>
-    -->
-    </div>
-
-  <div>
-    <nav>
-    <span @click="toggleLogin" style="cursor: pointer; color: blue; text-decoration: underline;">
-      Go to Login Page
-    </span>
+  <nav>
+    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/login">Login</RouterLink> |
+    <RouterLink to="/exercises">Exercises</RouterLink>
   </nav>
-  </div>
- 
 
+  <RouterView />
+ 
   <LoginView v-if="showLogin" @closeLogin="toggleLogin" />
 
 
@@ -63,6 +35,11 @@ const name = ref(''); // Reactive variable for input
   <h1>Weight Change Calculator</h1>
   <WeightChangeCalc />
 </div>
+
+
+
+
+
 
 </template>
 
