@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
 import BmrCalculator from './components/BMRCalc.vue';
 import WeightChangeCalc from './components/WeightChangeCalc.vue';
+import ExercisePlan from './components/ExercisePlan.vue';
 import { ref } from 'vue';
 
 const name = ref(''); // Reactive variable for input
@@ -34,6 +35,11 @@ const name = ref(''); // Reactive variable for input
 <div id="app">
   <h1>Weight Change Calculator</h1>
   <WeightChangeCalc />
+</div>
+
+<div id="app">
+  <h1>Your weight Loss</h1>
+  <ExercisePlan />
 </div>
 
 
