@@ -1,10 +1,10 @@
 <template>
-    <div>
+   <!-- <div>
       <h1>Exercise List</h1>
       <ol>
-       <!-- <li v-for="exercise in exercises" :key="exercise.id">
+       <li v-for="exercise in exercises" :key="exercise.id">
           {{ exercise.name }}
-        </li> -->
+        </li> 
 
         <li>Cardio Exercises</li>
           <ul>
@@ -31,12 +31,12 @@
                   <td>45+ minutes</td>
                   <td>5+ times a week</td>
                 </tr>
-              </table>
+              </table> 
             
-          <!-- <p>Recommended Jogging Duration: 
+        <p>Recommended Jogging Duration: 
               Beginners: 15-20 minutes, 3-4 times a week. 
               Intermediate: 30-40 minutes, 4-5 times a week. 
-              Advanced: 45+ minutes, 5+ times a week.</p> -->
+              Advanced: 45+ minutes, 5+ times a week.</p> 
 
 
             <li>Jumping Jacks</li>
@@ -56,6 +56,8 @@
 
       </ol>
     </div>
+
+  -->
   </template>
   
   <script setup>
