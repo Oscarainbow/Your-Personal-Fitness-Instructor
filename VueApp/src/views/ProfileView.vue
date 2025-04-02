@@ -1,7 +1,6 @@
 <template>
   <div class="profile-container">
     <h1>Your Profile</h1>
-
     <form @submit.prevent="saveProfile">
       <label for="gender">Gender:</label>
       <select id="gender" v-model="profile.gender">
@@ -35,35 +34,39 @@
 </template>
 
 <script setup>
-  import { useProfileStore } from '@/stores/profileStore';
-  import { ref } from 'vue';
+import { ref } from 'vue';
 
-  const profile = useProfileStore();
-  const saved = ref(false);
+const profile = ref({
+  gender: '',
+  age: '',
+  height: '',
+  weight: ''
+});
 
-  const saveProfile = () => {
-    profile.saveProfile({
-      gender: profile.gender,
-      weight: profile.weight,
-      height: profile.height,
-      age: profile.age
-    });
-    saved.value = true;
-  };
+const saved = ref(false);
 
-  const editProfile = () => {
-    saved.value = false;
-  };
+const saveProfile = () => {
+  saved.value = true;
+};
+
+const editProfile = () => {
+  saved.value = false;
+};
 </script>
 
 <style scoped>
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  input, select, button {
-    padding: 8px;
-    font-size: 16px;
-  }
+.profile-container {
+  padding: 20px;
+}
+
+.profile-summary {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+input,
+select {
+  margin-bottom: 10px;
+}
 </style>

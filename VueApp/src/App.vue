@@ -1,20 +1,13 @@
 <script setup>
 import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router';
 import { ref, provide, watch } from 'vue';
+import { createPinia } from 'pinia';
 
 import BmrCalculator from './components/BMRCalc.vue';
 import WeightChangeCalc from './components/WeightChangeCalc.vue';
 import ExercisePlan from './components/ExercisePlan.vue';
 import LoginView from './views/LoginView.vue';
 import ProfileView from './views/ProfileView.vue'; 
-
- /* const showLogin = ref(false);
-
-  const toggleLogin = () => {
-    showLogin.value = !showLogin.value;
-  };
-
-const name = ref(''); // Reactive variable for input */
 
 const router = useRouter();
 const route = useRoute();
@@ -39,7 +32,6 @@ watch(route, () => { // Redirect unauthorized users from Profile
 
 
 
-
 </script> 
 
 <template>
@@ -52,7 +44,7 @@ watch(route, () => { // Redirect unauthorized users from Profile
     <RouterLink to="/">Home</RouterLink> |
     <RouterLink to="/login">Login</RouterLink> | ||
     <RouterLink to="/exercises">Exercises</RouterLink>
-    <RouterLink to="/profile">Profile</RouterLink> 
+    <RouterLink to="/profile">Profile</RouterLink>
     <button v-if="isLoggedIn" @click="logout">Logout</button>
     
 
@@ -68,7 +60,7 @@ watch(route, () => { // Redirect unauthorized users from Profile
       <BmrCalculator />
 
       <h1>Weight Change Calculator</h1>
-      <WeightChangeCalc />
+      <WeightChangeCalc /> 
 
       <h1>Your Plan</h1>
       <ExercisePlan />
@@ -76,31 +68,6 @@ watch(route, () => { // Redirect unauthorized users from Profile
 
     <!-- This will load the Profile, Login, and other pages -->
     <RouterView :key="$route.fullPath" />
-
-
-
-
-<!--<div>
-  <h1>BMR Calculator</h1>
-  <BmrCalculator />
-</div>
-
-
-<div>
-  <h1>Weight Change Calculator</h1>
-  <WeightChangeCalc />
-</div>
-
-<div>
-  <h1>Your Plan</h1>
-  <ExercisePlan />
-</div>
-
-
-<div>
-  <h1>Your Profile </h1>
-  <ProfileView />
-</div> -->
 
 
 </template>

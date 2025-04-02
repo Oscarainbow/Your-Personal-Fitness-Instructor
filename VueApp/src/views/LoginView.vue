@@ -8,20 +8,25 @@ const password = ref('');
 const isLoggedIn = inject('isLoggedIn'); // Use global state
 const logout = inject('logout'); // Inject global logout function
 
+// On mounted, check if logged in and load the username if available
 onMounted(() => {
   isLoggedIn.value = localStorage.getItem('isLoggedIn') === 'true';
+  if (isLoggedIn.value) {
+    username.value = localStorage.getItem('username') || ''; // Get username from localStorage
+  }
 });
 
 const login = () => {
   if (username.value && password.value) {
     isLoggedIn.value = true;
     localStorage.setItem('isLoggedIn', 'true'); // Store login state
-    localStorage.setItem('username', username.value);
-    router.push('/profile'); // Redirect to profile
+    localStorage.setItem('username', username.value); // Store username in localStorage
+    router.push('/profile'); // Redirect to profile page
   } else {
     alert('Please enter a valid username and password.');
   }
 };
+
 </script>
 
 <template>
@@ -40,7 +45,6 @@ const login = () => {
     </div>
   </div>
 </template>
-
 
 <style scoped>
   .login-container {
