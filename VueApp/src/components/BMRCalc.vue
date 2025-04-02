@@ -49,23 +49,7 @@
       };
     },
     methods: {
-     /* async calculateBmr() {
-        try {
-          const response = await axios.post("http://127.0.0.1:5000/bmr", {
-            gender: this.gender,
-            weight: parseFloat(this.weight),
-            height: parseFloat(this.height),
-            age: parseInt(this.age),
-          });
-
-         // this.bmrResult = response.data.message;
-          this.bmrResult = response.data.bmr;
-          this.errorMessage = "";
-        } catch (error) {
-          this.errorMessage = "Failed to calculate BMR. Please check input values.";
-        }
-        
-      }*/
+ 
       async calculateBmr() {
         try {
           console.log("Sending request to backend...");

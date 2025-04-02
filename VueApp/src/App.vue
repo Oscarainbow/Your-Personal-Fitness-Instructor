@@ -1,14 +1,38 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
+import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router';
+import { ref, provide, watch } from 'vue';
+import { createPinia } from 'pinia';
+
 import BmrCalculator from './components/BMRCalc.vue';
 import WeightChangeCalc from './components/WeightChangeCalc.vue';
 import ExercisePlan from './components/ExercisePlan.vue';
-import { ref } from 'vue';
+import LoginView from './views/LoginView.vue';
+import ProfileView from './views/ProfileView.vue'; 
 
-const name = ref(''); // Reactive variable for input
+const router = useRouter();
+const route = useRoute();
+const isLoggedIn = ref(localStorage.getItem('isLoggedIn') === 'true');
 
-</script>
+provide('isLoggedIn', isLoggedIn); // Provide `isLoggedIn` to all components
+
+const logout = () => { // Logout function (also updates localStorage)
+  isLoggedIn.value = false;
+  localStorage.removeItem('isLoggedIn');
+  localStorage.removeItem('username');
+  router.push('/login'); // Redirect to login
+};
+
+provide('logout', logout); // Provide logout globally
+
+watch(route, () => { // Redirect unauthorized users from Profile
+  if (route.path === '/profile' && !isLoggedIn.value) {
+    router.push('/login');
+  }
+});
+
+
+
+</script> 
 
 <template>
   <div>
@@ -16,51 +40,40 @@ const name = ref(''); // Reactive variable for input
     <p>Description of the application will go here</p>
   </div>
   <nav>
+
     <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/login">Login</RouterLink> |
+    <RouterLink to="/login">Login</RouterLink> | ||
     <RouterLink to="/exercises">Exercises</RouterLink>
+    <RouterLink to="/profile">Profile</RouterLink>
+    <button v-if="isLoggedIn" @click="logout">Logout</button>
+    
+
+
   </nav>
 
-  <RouterView />
  
   <LoginView v-if="showLogin" @closeLogin="toggleLogin" />
 
+  <!-- Show these components only on the Home page -->
+  <div v-if="$route.path === '/'">
+      <h1>BMR Calculator</h1>
+      <BmrCalculator />
 
-<div id="app">
-  <h1>BMR Calculator</h1>
-  <BmrCalculator />
-</div>
+      <h1>Weight Change Calculator</h1>
+      <WeightChangeCalc /> 
 
+      <h1>Your Plan</h1>
+      <ExercisePlan />
+    </div>
 
-<div id="app">
-  <h1>Weight Change Calculator</h1>
-  <WeightChangeCalc />
-</div>
-
-<div id="app">
-  <h1>Your weight Loss</h1>
-  <ExercisePlan />
-</div>
-
-
-
-
+    <!-- This will load the Profile, Login, and other pages -->
+    <RouterView :key="$route.fullPath" />
 
 
 </template>
 
 
 <script>
-
-  import { ref } from 'vue';
-  import LoginView from './views/LoginView.vue';
-
-  const showLogin = ref(false);
-
-  const toggleLogin = () => {
-    showLogin.value = !showLogin.value;
-  };
-
 
 export default {
   data() {
@@ -86,9 +99,6 @@ export default {
 };
 
 </script>
-
-
-
 
 <style scoped>
 h1 {
