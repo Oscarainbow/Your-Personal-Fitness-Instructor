@@ -32,6 +32,11 @@ def load_food_data():
     # Create a dictionary {food_name (lowercase): calories per 100g}
     return dict(zip(df['Description'].str.lower(), df['Calories_per_100g']))
 
+# Function to get food names
+@app.route('/food-names', methods=['GET'])
+def get_food_names():
+    food_dict = load_food_data()
+    return jsonify(sorted(food_dict.keys()))
 
 # Function to load exercise data from CSV
 def load_exercise_data():
@@ -50,7 +55,13 @@ def load_exercise_data():
     # Convert activity names to lowercase for better matching
     df['Activity'] = df['Activity'].str.lower().str.strip()
 
-    return df
+    return df['Activity']
+
+# Function to get exercise names
+@app.route('/exercise-names', methods=['GET'])
+def get_exercise_names():
+    exercise_dict = load_exercise_data()
+    return jsonify(sorted(exercise_dict.keys()))
 
 # Function to calculate calories based on food name and weight in grams
 def get_calories(food_name, weight_in_grams, food_dict):
@@ -237,5 +248,7 @@ def main():
 
 # Run the main function if the script is executed directly
 if __name__ == "__main__":
+    app.run(debug=True, port=5000)
     main()
+    
 
