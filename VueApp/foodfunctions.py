@@ -32,15 +32,16 @@ def load_food_data():
     # Create a dictionary {food_name (lowercase): calories per 100g}
     return dict(zip(df['Description'].str.lower(), df['Calories_per_100g']))
 
+# Function to get food names
+@app.route('/food-names', methods=['GET'])
+def get_food_names():
+    food_dict = load_food_data()
+    return jsonify(sorted(food_dict.keys()))
 
 # Function to load exercise data from CSV
 def load_exercise_data():
-
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))  # Get parent directory
     csv_file = os.path.join(BASE_DIR, "data", "exerciseData", "exercise_dataset.csv")
-
-
-
 
     df = pd.read_csv(csv_file)
 
@@ -51,6 +52,13 @@ def load_exercise_data():
     df['Activity'] = df['Activity'].str.lower().str.strip()
 
     return df
+
+# Function to get exercise names
+@app.route('/exercise-names', methods=['GET'])
+def get_exercise_names():
+    df = load_exercise_data()
+    activities = df['Activity'].dropna().unique()
+    return jsonify(sorted(activities.tolist()))
 
 # Function to calculate calories based on food name and weight in grams
 def get_calories(food_name, weight_in_grams, food_dict):
@@ -238,4 +246,5 @@ def main():
 # Run the main function if the script is executed directly
 if __name__ == "__main__":
     main()
+    
 
