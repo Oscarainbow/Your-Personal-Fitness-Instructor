@@ -38,7 +38,7 @@
       </div>
       <input type="number" v-model="food.weight" placeholder="Weight in grams" />
       <button @click="removeFood(index)">Remove</button>
-  </div>
+    </div>
     <button @click="addFood">Add Food</button>
 
     <button @click="calculateWeightChange">Check Weight Status</button>
@@ -66,7 +66,7 @@ export default {
       weight: null,
       height: null,
       age: null,
-      dailyFoodIntake: [{ food: "", weight: null }], // Initial food entry
+      dailyFoodIntake: [{ food: "", weight: null }],
       result: null,
       errorMessage: "",
       foodNames: [],
@@ -76,10 +76,9 @@ export default {
   },
   mounted() {
     axios.get("http://127.0.0.1:5000/food-names").then(response => {
-    this.foodNames = response.data;
+      this.foodNames = response.data;
     });
     const profileStore = useProfileStore();
-    // Initialize profile data
     this.gender = profileStore.gender;
     this.weight = profileStore.weight;
     this.height = profileStore.height;
@@ -114,15 +113,14 @@ export default {
     filterFoodOptions(index) {
       const input = this.dailyFoodIntake[index].food.toLowerCase();
       this.filteredFoodOptions[index] = this.foodNames.filter(name =>
-      name.startsWith(input)
-      ).slice(0, 5); // limit suggestions
+        name.startsWith(input)
+      ).slice(0, 5);
     },
     selectFoodOption(index, option) {
       this.dailyFoodIntake[index].food = option;
       this.filteredFoodOptions[index] = [];
       this.showSuggestionsIndex = null;
     },
-
     hideSuggestionsWithDelay() {
       setTimeout(() => {
         this.showSuggestionsIndex = null;
@@ -166,7 +164,6 @@ button {
 .autocomplete {
   position: relative;
 }
-
 .suggestions {
   position: absolute;
   background: black;
@@ -179,13 +176,13 @@ button {
   margin: 0;
   z-index: 10;
 }
-
 .suggestions li {
   padding: 8px;
   cursor: pointer;
 }
-
 .suggestions li:hover {
   background-color: #f0f0f0;
 }
 </style>
+
+
