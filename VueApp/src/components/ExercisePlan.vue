@@ -93,26 +93,23 @@
 
 <script>
 import axios from "axios";
+import { useProfileStore } from "@/stores/profileStore";
 
 export default {
   data() {
+    const profileStore = useProfileStore();
     return {
       user_id: "",
-      weight: "",
-      height: "",
-      age: "",
-      gender: "male",
-      foodEntries: [],
-      exerciseEntries: [],
-      summary: null,
-      foodSuggestions: [],
-      exerciseSuggestions: [],
-      filteredFoodSuggestions: [],
-      filteredExerciseSuggestions: [],
+      weight: profileStore.weight,
+      height: profileStore.height,
+      age: profileStore.age,
+      gender: profileStore.gender,
+      
     };
   },
+  
   mounted() {
-    console.log("Component mounted"); // <--- Add this line
+    console.log("Component mounted");
     axios.get("http://127.0.0.1:5000/food-names").then((res) => {
       this.foodSuggestions = res.data;
       console.log("Fetched food suggestions:", this.foodSuggestions);

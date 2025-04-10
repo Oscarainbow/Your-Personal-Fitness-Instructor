@@ -15,7 +15,7 @@ export const useProfileStore = defineStore('profile', {state: () => ({
       this.height = height;
       this.age = age;
 
-      // Save to localStorage so the data persists after page reload
+      //Save to localStorage so the data persists after page reload
       localStorage.setItem('gender', gender);
       localStorage.setItem('weight', weight);
       localStorage.setItem('height', height);
