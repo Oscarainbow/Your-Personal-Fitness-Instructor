@@ -63,6 +63,7 @@
       <li>A core strength exercise, requiring your core muscles</li>
     </ul>
 
+
     <h2>Burpees (Cardiovascular & Strength)</h2>
     <hr>
     <p>A full-body exercise that involves a squat, jump, and push-up in a sequence, commonly used for strength and cardio conditioning.</p>
