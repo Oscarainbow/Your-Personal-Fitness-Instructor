@@ -37,7 +37,9 @@ watch(route, () => { // Redirect unauthorized users from Profile
 <template>
   <div>
     <h1>Your Personal Fitness Instructor</h1>
-    <p>Description of the application will go here</p>
+    <p>Welcome to Y.P.F.I! This application consists of multiple features to help you track your weight, bmr, and calorie loss overtime.</p>
+    <p>The application serves to be user-friendly and relatively simple to use, where all you have to do is enter the required information in the fields below, and the software can even generate a summary of calories lost given the diet and exercises you've done.</p>
+    <p><strong>If you want your information to save, we suggest logging in. </strong></p>
   </div>
   <nav>
 
