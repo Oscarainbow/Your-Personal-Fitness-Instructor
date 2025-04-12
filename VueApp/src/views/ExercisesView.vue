@@ -64,6 +64,47 @@
     </ul>
 
 
+    <h2>Burpees (Cardiovascular & Strength)</h2>
+    <hr>
+    <p>A full-body exercise that involves a squat, jump, and push-up in a sequence, commonly used for strength and cardio conditioning.</p>
+    <h4>Benefits</h4>
+    <ul>
+      <li>Improves full-body strength and endurance</li>
+      <li>Increases cardiovascular fitness</li>
+      <li>Burns high calories in a short time</li>
+    </ul>
+
+    <h2>Squats (Strength)</h2>
+    <hr>
+    <p>A compound, bodyweight exercise that targets the thighs, hips, and buttocks. Can be performed with or without weights.</p>
+    <h4>Benefits</h4>
+    <ul>
+      <li>Builds leg and core strength</li>
+     <li>Improves mobility and balance</li>
+      <li>Enhances athletic performance</li>
+    </ul>
+
+    <h2>Plank (Strength/Core)</h2>
+    <hr>
+    <p>A core exercise that involves maintaining a position similar to a push-up for the maximum possible time.</p>
+    <h4>Benefits</h4>
+    <ul>
+      <li>Strengthens core muscles</li>
+      <li>Improves posture and stability</li>
+      <li>Reduces risk of back injury</li>
+    </ul>
+
+    <h2>Cycling (Cardiovascular)</h2>
+    <hr>
+    <p>An aerobic activity performed on a stationary or moving bike, ideal for endurance and lower-body conditioning.</p>
+    <h4>Benefits</h4>
+    <ul>
+      <li>Enhances cardiovascular health</li>
+      <li>Strengthens legs and joints with low impact</li>
+     <li>Improves mental health and focus</li>
+    </ul>
+
+
 
     </div>
 
