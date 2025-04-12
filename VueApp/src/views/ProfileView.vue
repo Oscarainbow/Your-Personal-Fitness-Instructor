@@ -25,6 +25,7 @@
 
     <div v-if="saved" class="profile-summary">
       <h2>Profile Summary</h2>
+      <p><strong>Username:</strong> {{ store.username }}</p>
       <p><strong>Gender:</strong> {{ store.gender }}</p>
       <p><strong>Age:</strong> {{ store.age }}</p>
       <p><strong>Height:</strong> {{ store.height }} cm</p>
@@ -42,13 +43,14 @@ const store = useProfileStore();
 const saved = ref(false);
 
 onMounted(() => {
-  if (store.gender && store.age && store.height && store.weight) {
+  if (store.username && store.gender && store.age && store.height && store.weight) {
     saved.value = true;
   }
 });
 
 const saveProfile = () => {
   store.saveProfile({
+    username: store.username,
     gender: store.gender,
     age: store.age,
     height: store.height,
