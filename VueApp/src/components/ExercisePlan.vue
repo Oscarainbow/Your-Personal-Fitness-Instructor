@@ -99,12 +99,18 @@ export default {
   data() {
     const profileStore = useProfileStore();
     return {
-      user_id: "",
+      user_id: profileStore.username,
       weight: profileStore.weight,
       height: profileStore.height,
       age: profileStore.age,
       gender: profileStore.gender,
-      
+      foodEntries: [],
+      exerciseEntries: [],
+      foodSuggestions: [],
+      exerciseSuggestions: [],
+      filteredFoodSuggestions: [],
+      filteredExerciseSuggestions: [],
+      summary: null,
     };
   },
   
