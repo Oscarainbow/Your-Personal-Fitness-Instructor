@@ -44,31 +44,33 @@
         weight: "",
         height: "",
         age: "",
-        bmrResult: "",
-        error: ""
+        bmrResult: "",  // shown in template
+        error: ""       // shown in template
       };
     },
+
     methods: {
  
       async calculateBmr() {
         try {
           console.log("Sending request to backend...");
-
-          const response = await axios.post("http://127.0.0.1:5000/bmr", {  // Ensure POST method
+          const response = await axios.post("http://127.0.0.1:5000/bmr", {
             gender: this.gender,
             weight: parseFloat(this.weight),
             height: parseFloat(this.height),
-            age: parseInt(this.age)
+            age: parseInt(this.age),
           });
 
           console.log("Response received:", response.data);
-          this.bmrResult = response.data.message;
-          this.errorMessage = "";
+          this.bmrResult = `Your BMR is ${response.data.bmr} calories/day`;
+          this.error = "";
         } catch (error) {
           console.error("Axios Error:", error.response ? error.response.data : error.message);
-          this.errorMessage = "Failed to calculate BMR. Please check input values.";
+          this.error = "Failed to calculate BMR. Please check input values.";
+          this.bmrResult = "";
         }
       }
+
     }
   };    
   </script>
