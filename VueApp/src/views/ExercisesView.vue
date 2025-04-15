@@ -1,26 +1,5 @@
 <template>
     <div>
-      <!--<h1>Exercise List</h1>
-      <ol>
-        <li>Cardio Exercises</li>
-          <ul>
-            <li>Jogging</li>              
-            <li>Jumping Jacks</li>
-            <li>Burpee</li>
-            <li>Jump-Rope</li>
-            <li>Cycling</li>
-          </ul>
-        
-        <li>Strength Training</li>
-          <ul>
-            <li>Push-Ups</li>
-            <li>Pull-Ups</li>
-            <li>Squats</li>
-            <li>Sit-Ups</li>
-            <li>Plank</li>      
-          </ul>
-
-      </ol> -->
     <h2>Jogging (Cardiovascular)</h2>
     <hr>
     <p>A form of trotting or running at a slow or leisurely pace. The main intention is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time.</p>
@@ -31,6 +10,7 @@
       <li>Reduces the risk of developing chronic diseases</li>
       <li>Stress Relief</li>
     </ul>
+    <img src="@/assets/images/jogging.jpg" alt="Jogging" class="exercise-image" />
 
     <h2>Jumping Jacks (Cardiovascular)</h2>
     <hr>
@@ -42,6 +22,7 @@
       <li>Improves coordination and balance</li>
       <li>Improves flexibility</li>
     </ul>
+    <img src="@/assets/images/jumpingjacks.jpg" alt="Jogging" class="exercise-image" />
 
     <h2>Push-Ups (Strength)</h2>
     <hr>
@@ -52,6 +33,7 @@
       <li>Enhances muscular endurance </li>
       <li>Improved Posture and Balance</li>
     </ul>
+    <img src="@/assets/images/pushups.jpg" alt="Jogging" class="exercise-image" />
 
     <h2>Pull-Ups (Strength)</h2>
     <hr>
@@ -62,7 +44,7 @@
       <li>Enhances muscular endurance </li>
       <li>A core strength exercise, requiring your core muscles</li>
     </ul>
-
+    <img src="@/assets/images/pullups.jpg" alt="Jogging" class="exercise-image" />
 
     <h2>Burpees (Cardiovascular & Strength)</h2>
     <hr>
@@ -73,7 +55,8 @@
       <li>Increases cardiovascular fitness</li>
       <li>Burns high calories in a short time</li>
     </ul>
-
+    <img src="@/assets/images/burpee.jpg" alt="Jogging" class="exercise-image" />
+    
     <h2>Squats (Strength)</h2>
     <hr>
     <p>A compound, bodyweight exercise that targets the thighs, hips, and buttocks. Can be performed with or without weights.</p>
@@ -83,6 +66,7 @@
      <li>Improves mobility and balance</li>
       <li>Enhances athletic performance</li>
     </ul>
+    <img src="@/assets/images/squat.jpg" alt="Jogging" class="exercise-image" />
 
     <h2>Plank (Strength/Core)</h2>
     <hr>
@@ -93,6 +77,7 @@
       <li>Improves posture and stability</li>
       <li>Reduces risk of back injury</li>
     </ul>
+    <img src="@/assets/images/plank2.jpg" alt="Jogging" class="exercise-image" />
 
     <h2>Cycling (Cardiovascular)</h2>
     <hr>
@@ -103,7 +88,7 @@
       <li>Strengthens legs and joints with low impact</li>
      <li>Improves mental health and focus</li>
     </ul>
-
+    <img src="@/assets/images/cycling.jpg" alt="Jogging" class="exercise-image" />
 
 
     </div>
@@ -115,4 +100,14 @@
   import { ref } from 'vue';
   
   </script>
+  
+  <style scoped>
+  .exercise-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    margin: 1rem 0;
+  }
+  </style>
   
