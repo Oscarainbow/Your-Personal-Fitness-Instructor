@@ -76,12 +76,81 @@
   </script>
   
   <style>
-  .container {
-    max-width: 600px;
-    margin: auto;
-  }
-  .form-group {
-    margin-bottom: 10px;
-  }
+ .container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #4caf50;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.alert {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.success {
+  background-color: #2e7d32;
+  color: #c8fdd9;
+}
+
+.error {
+  background-color: #b71c1c;
+  color: #ffbdbd;
+}
   </style>
   

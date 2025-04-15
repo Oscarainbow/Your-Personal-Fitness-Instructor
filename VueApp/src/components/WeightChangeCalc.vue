@@ -132,56 +132,100 @@ export default {
 
 <style scoped>
 .container {
-  max-width: 500px;
-  margin: auto;
-  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-input, select {
+
+h2, h3 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+label {
   display: block;
+  text-align: left;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+input, select {
   width: 100%;
-  margin: 10px 0;
-  padding: 8px;
-}
-button {
-  padding: 8px;
-  margin: 5px;
-  background: #007bff;
-  color: white;
+  padding: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
   border: none;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #4caf50;
+}
+
+button {
+  padding: 10px 16px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.error {
-  color: red;
+
+button:hover {
+  background-color: #45a049;
 }
+
 .food-item {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 10px;
 }
+
 .food-item input {
   width: 45%;
 }
-.autocomplete {
-  position: relative;
+
+.error {
+  margin-top: 1rem;
+  color: #ff6b6b;
+  font-weight: bold;
 }
-.suggestions {
+
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 10px;
   position: absolute;
-  background: black;
-  border: 1px solid #ccc;
-  width: 100%;
+  width: calc(100% - 20px);
+  z-index: 1000;
   max-height: 150px;
   overflow-y: auto;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  z-index: 10;
 }
-.suggestions li {
-  padding: 8px;
+
+.dropdown li {
+  padding: 10px;
   cursor: pointer;
+  transition: background 0.2s;
 }
-.suggestions li:hover {
-  background-color: #f0f0f0;
+
+.dropdown li:hover {
+  background-color: #555;
 }
 </style>
 
