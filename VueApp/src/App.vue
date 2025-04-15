@@ -44,9 +44,9 @@ watch(route, () => { // Redirect unauthorized users from Profile
   <nav>
 
     <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/login">Login</RouterLink> | ||
-    <RouterLink to="/exercises">Exercises</RouterLink>
-    <RouterLink to="/profile">Profile</RouterLink>
+    <RouterLink to="/login">Login</RouterLink> |
+    <RouterLink to="/exercises">Exercises</RouterLink> |
+    <RouterLink to="/profile">Profile</RouterLink> |
     <button v-if="isLoggedIn" @click="logout">Logout</button>
     
 
