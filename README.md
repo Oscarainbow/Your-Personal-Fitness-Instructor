@@ -94,9 +94,9 @@ View monthly progress reports, including calorie surplus/deficit and estimated w
 
 # Folder Structure
 ```sh
-YOUR-PERSONAL-FITNESS-INSTRUCTOR/
+Your-Personal-Fitness-Instructor/
 ├── .vscode/
-│   └── extensions.json
+│   └── settings.json
 ├── data/
 │   ├── exerciseData/
 │   │   └── exercise_dataset.csv
@@ -105,24 +105,59 @@ YOUR-PERSONAL-FITNESS-INSTRUCTOR/
 ├── public/
 │   └── _redirects
 ├── VueApp/
-│   ├── assets/
-│   ├── components/
-│   ├── router/
-│   ├── stores/
-│   ├── views/
-│   ├── App.vue
-│   ├── main.js
-│   └── favicon.ico
+│   ├── __pycache__/                    
+│   ├── .vscode/
+│   │   └── extensions.json
+│   ├── dist/                           
+│   │   ├── index.html
+│   │   └── assets/
+│   ├── node_modules/
+│   ├── public/
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── assets/
+│   │   │   ├── images/
+│   │   │   ├── base.css
+│   │   │   ├── main.css
+│   │   │   └── logo.svg
+│   │   ├── components/
+│   │   │   ├── icons/
+│   │   │   ├── BMRCalc.vue
+│   │   │   ├── ExercisePlan.vue
+│   │   │   ├── HelloWorld.vue
+│   │   │   ├── TheWelcome.vue
+│   │   │   ├── WeightChangeCalc.vue
+│   │   │   └── WelcomeItem.vue
+│   │   ├── router/
+│   │   │   └── index.js
+│   │   ├── stores/
+│   │   │   └── profileStore.js
+│   │   ├── views/
+│   │   │   ├── AboutView.vue
+│   │   │   ├── ExercisesView.vue
+│   │   │   ├── HomeView.vue
+│   │   │   ├── LoginView.vue
+│   │   │   └── ProfileView.vue
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── index.html
+│   ├── jsconfig.json
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   └── README.md
 ├── .gitignore
-├── foodfunctions.py
+├── foodfunctions.py                  
 ├── index.html
 ├── jsconfig.json
-├── package-lock.json
 ├── package.json
+├── package-lock.json
+├── Procfile                          
 ├── README.md
-├── settings.json
+├── requirements.txt                  
 ├── test.py
-└── vite.config.js
+├── testing.md
+└── annotated-SoftwareRequirementsSpecification.pdf
 ```
 
 
