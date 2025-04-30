@@ -5,7 +5,7 @@ https://csds393yourpersonalfitnessinstr.netlify.app/
 # Project Description:
 Your Personal Fitness Instructor is a web based fitness and nutrition assisant designed for anyone interested in loosing weight, dieting and/or exercising 
 
-This application will generate personalized diet and exercis plans for users with different weight goals and track  caloric intake and exercise activity. This project combines fitness science and data analysis and provide a platfrom for all different users. 
+This application will generate personalized diet and exercis plans for users with different weight goals and track  caloric intake and exercise activity. This project combines fitness science and data analysis and provide a platfrom for all different users. The project is uploaded by netlify with frontend and render for backend api calls. 
 
 # Architecture
 Frontend: Built with Vue.js and Pinia 
