@@ -54,7 +54,7 @@
       async calculateBmr() {
         try {
           console.log("Sending request to backend...");
-          const response = await axios.post("http://127.0.0.1:5000/bmr", {
+          const response = await axios.post("https://your-personal-fitness-instructor.onrender.com/bmr", {
             gender: this.gender,
             weight: parseFloat(this.weight),
             height: parseFloat(this.height),
