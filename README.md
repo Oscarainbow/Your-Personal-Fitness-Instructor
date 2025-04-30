@@ -1,10 +1,11 @@
 # Your-Personal-Fitness-Instructor (Changhao Wang (cxw762) | Shuai Fu (sxf477) | Victor Boyd (vwb6) | Julio Perez (jjp212))
+# Online link: 
+https://csds393yourpersonalfitnessinstr.netlify.app/
 
 # Project Description:
 Your Personal Fitness Instructor is a web based fitness and nutrition assisant designed for anyone interested in loosing weight, dieting and/or exercising 
 
 This application will generate personalized diet and exercis plans for users with different weight goals and track  caloric intake and exercise activity. This project combines fitness science and data analysis and provide a platfrom for all different users. 
-
 
 # Architecture
 Frontend: Built with Vue.js and Pinia 
@@ -18,23 +19,30 @@ Database: CSV document to store food data, and exercise data
 # Getting Started / Installation
 Project setup
 Clone the Repository
+```sh
 git clone <https://github.com/Oscarainbow/Your-Personal-Fitness-Instructor/branches>
 cd YOUR-PERSONAL-FITNESS-INSTRUCTOR
+```
 
 Backend Setup
 Create and activate a virtual environment
 
+```sh
 python -m venv venv
+```
 source venv/bin/activate        # Windows users: venv\Scripts\activate
 
 Install backend dependencies
-pip install flask pandas flask-cors
+
+```sh
+    npm install flask pandas flask-cors
+```
 
 Start the Flask server
 python foodfunctions.py
 
 
-# Vue Setup
+# Vue(Frontend) Setup
     # Recommended IDE Setup
 
     [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
@@ -47,6 +55,11 @@ python foodfunctions.py
 
     ```sh
     npm install
+    ```
+    Install pinia
+
+    ```sh
+    npm install pinia
     ```
 
     ### Compile and Hot-Reload for Development
@@ -90,6 +103,9 @@ View monthly progress reports, including calorie surplus/deficit and estimated w
 │   │   └── exercise_dataset.csv
 │   └── foodData/
 │       └── food.csv
+│
+├── public
+│   ├── _redirects
 │
 ├── VueApp/                 
 │   ├── __pycache__/        

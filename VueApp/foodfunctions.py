@@ -9,7 +9,6 @@ from datetime import datetime
 # This stores daily records: {user_id: [{date, food, exercise, total_calories_in, total_calories_out}]}
 user_calorie_log = defaultdict(list)
 
-
 app = Flask(__name__)
 CORS(app)
 
@@ -19,9 +18,6 @@ def load_food_data():
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))  # Get parent directory
     csv_file = os.path.join(BASE_DIR, "data", "foodData", "food.csv")
 
-
-
-    
     df = pd.read_csv(csv_file)
     
     required_columns = ['Description', 'Data.Carbohydrate', 'Data.Protein', 'Data.Fat.Total Lipid']
@@ -235,9 +231,6 @@ def monthly_summary():
         "estimated_weight_change_kg": round(weight_change_kg, 2)
     })
 
-
-
-
 # Main function to start the Flask app
 def main():
     print("Starting Flask server...")
@@ -247,4 +240,3 @@ def main():
 if __name__ == "__main__":
     main()
     
-
