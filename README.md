@@ -124,7 +124,6 @@ YOUR-PERSONAL-FITNESS-INSTRUCTOR/
 └── vite.config.js
 
 
-
 # Tech Stack 
 Frontend: Vue.js, Pinia, HTML, CSS
 
