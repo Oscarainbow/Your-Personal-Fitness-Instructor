@@ -35,7 +35,7 @@ source venv/bin/activate        # Windows users: venv\Scripts\activate
 Install backend dependencies
 
 ```sh
-    npm install flask pandas flask-cors
+npm install flask pandas flask-cors
 ```
 
 Start the Flask server
