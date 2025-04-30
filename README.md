@@ -93,45 +93,36 @@ Progress Reports
 View monthly progress reports, including calorie surplus/deficit and estimated weight changes
 
 # Folder Structure
-/YOUR-PERSONAL-FITNESS-INSTRUCTOR
-│
-├── .vscode/              
-│   └── settings.json
-│
-├── data/                   
+YOUR-PERSONAL-FITNESS-INSTRUCTOR/
+├── .vscode/
+│   └── extensions.json
+├── data/
 │   ├── exerciseData/
 │   │   └── exercise_dataset.csv
 │   └── foodData/
 │       └── food.csv
-│
-├── public
-│   ├── _redirects
-│
-├── VueApp/                 
-│   ├── __pycache__/        
-│   ├── .vscode/            
-│   │   └── extensions.json
-│   ├── public/             
-│   │   └── favicon.ico
-│   └── src/                
-│       ├── assets/         
-│       ├── components/    
-│       ├── router/         
-│       ├── stores/         
-│       └── views/         
-│       ├── App.vue         
-│       └── main.js         
-│
-├── .gitignore              
-├── foodfunctions.py        
-├── index.html              
-├── jsconfig.json          
-├── package-lock.json       
-├── package.json            
-├── README.md               
-├── test.py                 
-├── vite.config.js          
-│
+├── public/
+│   └── _redirects
+├── VueApp/
+│   ├── assets/
+│   ├── components/
+│   ├── router/
+│   ├── stores/
+│   ├── views/
+│   ├── App.vue
+│   ├── main.js
+│   └── favicon.ico
+├── .gitignore
+├── foodfunctions.py
+├── index.html
+├── jsconfig.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── settings.json
+├── test.py
+└── vite.config.js
+
 
 # Tech Stack 
 Frontend: Vue.js, Pinia, HTML, CSS
