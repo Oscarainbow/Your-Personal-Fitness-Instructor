@@ -93,6 +93,7 @@ Progress Reports
 View monthly progress reports, including calorie surplus/deficit and estimated weight changes
 
 # Folder Structure
+```sh
 YYOUR-PERSONAL-FITNESS-INSTRUCTOR/
     .vscode/
         extensions.json
@@ -122,7 +123,7 @@ YYOUR-PERSONAL-FITNESS-INSTRUCTOR/
     settings.json
     test.py
     vite.config.js
-
+```
 
 
 # Tech Stack 
