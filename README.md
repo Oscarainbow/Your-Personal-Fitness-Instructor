@@ -7,27 +7,30 @@ This application will generate personalized diet and exercis plans for users wit
 
 
 # Architecture
-Frontend: Built with Vue.js and Pinia (state management)
+Frontend: Built with Vue.js and Pinia 
 
 Backend: Flask (Python) API providing all fitness calculations and record tracking
 
-Database: MySQL to store user progress, food data, and exercise data
+Database: CSV document to store food data, and exercise data
 
-[ User Interface (Vue.js) ] <---> [ Flask API Server (Python) ] <---> [ MySQL Database ]
+[ User Interface (Vue.js) ] <---> [ Flask API Server (Python Backend Functions) ] <---> [ Database ]
 
 # Getting Started / Installation
-
-# Project setup
-# Clone the Repository
+Project setup
+Clone the Repository
 git clone <https://github.com/Oscarainbow/Your-Personal-Fitness-Instructor/branches>
 cd YOUR-PERSONAL-FITNESS-INSTRUCTOR
-# Backend Setup
-# Create and activate a virtual environment
+
+Backend Setup
+Create and activate a virtual environment
+
 python -m venv venv
 source venv/bin/activate        # Windows users: venv\Scripts\activate
-# Install backend dependencies
+
+Install backend dependencies
 pip install flask pandas flask-cors
-# Start the Flask server
+
+Start the Flask server
 python foodfunctions.py
 
 
@@ -119,9 +122,9 @@ Frontend: Vue.js, Pinia, HTML, CSS
 
 Backend: Flask, Python
 
-Database: MySQL
+Database: CSV file connected with Python
 
-Testing: Postman (API Testing), pytest (Unit Testing)
+Testing: pytest (Unit Testing)
 
 Others: Pandas (data processing), Flask-CORS (cross-origin access)
 
@@ -129,8 +132,8 @@ Others: Pandas (data processing), Flask-CORS (cross-origin access)
 Name	        Main Role
 Victor Boyd	    Frontend Development (Vue Layout, BMR Calculator)
 Julio Perez	    Frontend Development (Search Bar, Tracker, UI Design)
-Shuai Fu	    Backend Development Lead (Core Backend API Functions)
-Changhao Wang	Database Design, Backend Functions, Testing Lead
+Shuai Fu	    Backend Development Lead (Core Backend Functions and API Functions)
+Changhao Wang	Database, Backend Functions, Testing 
 
 # Development Retrospective
 Mistakes:
