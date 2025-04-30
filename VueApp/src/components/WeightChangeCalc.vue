@@ -75,7 +75,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://127.0.0.1:5000/food-names").then(response => {
+    axios.get("https://your-personal-fitness-instructor.onrender.com/food-names").then(response => {
       this.foodNames = response.data;
     });
     const profileStore = useProfileStore();
@@ -94,7 +94,7 @@ export default {
     },
     async calculateWeightChange() {
       try {
-        const response = await axios.post("http://127.0.0.1:5000/weight-change", {
+        const response = await axios.post("https://your-personal-fitness-instructor.onrender.com/weight-change", {
           gender: this.gender,
           weight: parseFloat(this.weight),
           height: parseFloat(this.height),

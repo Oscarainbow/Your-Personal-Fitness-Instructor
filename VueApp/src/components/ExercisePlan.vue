@@ -116,11 +116,11 @@ export default {
   
   mounted() {
     console.log("Component mounted");
-    axios.get("http://127.0.0.1:5000/food-names").then((res) => {
+    axios.get("https://your-personal-fitness-instructor.onrender.com/food-names").then((res) => {
       this.foodSuggestions = res.data;
       console.log("Fetched food suggestions:", this.foodSuggestions);
     });
-    axios.get("http://127.0.0.1:5000/exercise-names").then((res) => {
+    axios.get("https://your-personal-fitness-instructor.onrender.com/exercise-names").then((res) => {
       this.exerciseSuggestions = res.data;
       console.log("Fetched exercise suggestions:", this.exerciseSuggestions);
     });
@@ -144,7 +144,7 @@ export default {
     },
     async recordDaily() {
       try {
-        await axios.post("http://localhost:5000/record-daily", {
+        await axios.post("https://your-personal-fitness-instructor.onrender.com/record-daily", {
           user_id: this.user_id,
           gender: this.gender,
           weight: this.weight,
@@ -160,7 +160,7 @@ export default {
     },
     async getMonthlySummary() {
       try {
-        const response = await axios.get("http://localhost:5000/monthly-summary", {
+        const response = await axios.get("https://your-personal-fitness-instructor.onrender.com/monthly-summary", {
           params: { user_id: this.user_id, weight: this.weight },
         });
         this.summary = response.data;
