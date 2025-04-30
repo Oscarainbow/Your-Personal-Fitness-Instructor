@@ -139,11 +139,11 @@ Others: Pandas (data processing), Flask-CORS (cross-origin access)
 
 # Contribution
 ```sh
-Name	           Main Role
-Victor Boyd	       Frontend Development (Vue Layout, BMR Calculator)
-Julio Perez	       Frontend Development (Search Bar, Tracker, UI Design)
-Shuai Fu	       Backend Development Lead (Core Backend Functions and API Functions)
-Changhao Wang	   Database, Backend Functions, Testing 
+Name	            Main Role
+Victor Boyd         Frontend Development (Vue Layout, BMR Calculator)
+Julio Perez	        Frontend Development (Search Bar, Tracker, UI Design)
+Shuai Fu	        Backend Development Lead (Core Backend Functions and API Functions)
+Changhao Wang	    Database, Backend Functions, Testing 
 ```
 
 # Development Retrospective
